@@ -1,6 +1,6 @@
-# iOS Objective-C Master Plugin - Plug-n-Play Sample
+# Android Master Plugin - Plug-n-Play Sample
 
-This is a plug-n-play sample of the iOS (Objective-C) Master Plugin from Sequencing.com. It is a sample project example for Android with installed and integrated Master plugin via Gradle dependency manager.
+This is a plug-n-play sample of the Android Master Plugin from Sequencing.com. It is a sample project example for Android with installed and integrated Master plugin via Gradle dependency manager.
 
 This is 'plug-n-play' because this repo can be cloned and the code added to your app if you want to get up and running as quick as possible.
 
