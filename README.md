@@ -1,6 +1,18 @@
-# Android-Master-Plugin-Sample
+# iOS Objective-C Master Plugin - Plug-n-Play Sample
 
-This is a sample project example for Android with installed and integrated Master plugin via Gradle dependency manager.
+This is a plug-n-play sample of the iOS (Objective-C) Master Plugin from Sequencing.com. It is a sample project example for Android with installed and integrated Master plugin via Gradle dependency manager.
+
+This is 'plug-n-play' because this repo can be cloned and the code added to your app if you want to get up and running as quick as possible.
+
+This sample works out of the box. To modify it to work with your apps:
+
+* [Register](https://sequencing.com/user/register) for a free account at Sequencing.com
+* Clone this repo and add the code to your app
+* Swap the demo OAuth2 Secret with your OAuth2 secret generated when you are signed in to Sequencing.com. [Generate OAuth2 Secret](https://sequencing.com/developer-center/new-app-oauth-secret)
+* Search and find one or more app chains you want your app to use. [Find App Chains](https://sequencing.com/app-chains)
+* Change the App Chain "Chain#" with the Chain# you want to use.
+* Configure your app based on the possible responses to your selected App Chain(s). 
+ * Most app chains are just a simple "Yes" or "No" response.
 
 **The Master Plugin with description is available on the following languages:**
 * [Android (Maven plugin)](https://github.com/SequencingDOTcom/Maven-Android-Master-Plugin-Java)
