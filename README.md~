@@ -24,47 +24,32 @@ This sample works out of the box. To modify it to work with your apps:
 **Screenshots examples:**
 * sign in page
 
-![sign in page](https://github.com/SequencingDOTcom/Android-Master-Plugin-Plug-N-Play-Sample/blob/master/screenshots/Screenshot_2016-07-14-17-27-14.png?raw=true)
+![sign in page](https://github.com/SequencingDOTcom/Android-Master-Plugin-Sample/blob/master/screenshots/Screenshot_2016-04-01-15-26-51.png?raw=true)
 
 * login dialog
 
-![login dialog](https://github.com/SequencingDOTcom/Android-Master-Plugin-Plug-N-Play-Sample/blob/master/screenshots/Screenshot_2016-07-14-17-28-25.png?raw=true)
+![login dialog](https://github.com/SequencingDOTcom/Android-Master-Plugin-Sample/blob/master/screenshots/Screenshot_2016-04-04-18-42-24.png?raw=true)
 
 * authorize access dialog
 
-![authorize access dialog](https://github.com/SequencingDOTcom/Android-Master-Plugin-Plug-N-Play-Sample/blob/master/screenshots/Screenshot_2016-07-14-17-29-11.png?raw=true)
+![authorize access dialog](https://github.com/SequencingDOTcom/Android-Master-Plugin-Sample/blob/master/screenshots/Screenshot_2016-04-01-15-27-26.png?raw=true)
 
-* select file page
+* after success authentication
 
-![authorize access dialog](https://github.com/SequencingDOTcom/Android-Master-Plugin-Plug-N-Play-Sample/blob/master/screenshots/Screenshot_2016-07-14-17-29-23.png?raw=true)
-
-* select file - intro page
-
-![authorize access dialog](https://github.com/SequencingDOTcom/Android-Master-Plugin-Plug-N-Play-Sample/blob/master/screenshots/Screenshot_2016-07-14-17-29-34.png?raw=true)
+![after success authentication](https://github.com/SequencingDOTcom/Android-Master-Plugin-Sample/blob/master/screenshots/Screenshot_2016-04-01-15-27-37.png?raw=true)
 
 * my files
 
-![authorize access dialog](https://github.com/SequencingDOTcom/Android-Master-Plugin-Plug-N-Play-Sample/blob/master/screenshots/Screenshot_2016-04-01-15-28-17.png?raw=true)
+![my files](https://github.com/SequencingDOTcom/Android-Master-Plugin-Sample/blob/master/screenshots/Screenshot_2016-04-01-15-28-17.png?raw=true)
 
 * sample files
 
-![authorize access dialog](https://github.com/SequencingDOTcom/Android-Master-Plugin-Plug-N-Play-Sample/blob/master/screenshots/Screenshot_2016-04-04-18-55-45.png?raw=true)
+![sample files](https://github.com/SequencingDOTcom/Android-Master-Plugin-Sample/blob/master/screenshots/Screenshot_2016-04-04-18-55-45.png?raw=true)
 
-* selected file
+* display file metadata
 
-![authorize access dialog](https://github.com/SequencingDOTcom/Android-Master-Plugin-Plug-N-Play-Sample/blob/master/screenshots/Screenshot_2016-07-14-17-30-19.png?raw=true)
+![file metadata](https://github.com/SequencingDOTcom/Android-Master-Plugin-Sample/blob/master/screenshots/Screenshot_2016-04-01-15-28-31.png?raw=true)
 
-* selected file displayed in Select File screen
-
-![authorize access dialog](https://github.com/SequencingDOTcom/Android-Master-Plugin-Plug-N-Play-Sample/blob/master/screenshots/Screenshot_2016-07-14-17-30-35.png?raw=true)
-
-* retrieved information about "Vitamin D"
-
-![authorize access dialog](https://github.com/SequencingDOTcom/Android-Master-Plugin-Plug-N-Play-Sample/blob/master/screenshots/Screenshot_2016-07-14-17-30-55.png?raw=true)
-
-* retrieved information about "Melanoma risk"
-
-![authorize access dialog](https://github.com/SequencingDOTcom/Android-Master-Plugin-Plug-N-Play-Sample/blob/master/screenshots/Screenshot_2016-07-14-17-31-11.png?raw=true)
 
 Resources
 ======================================

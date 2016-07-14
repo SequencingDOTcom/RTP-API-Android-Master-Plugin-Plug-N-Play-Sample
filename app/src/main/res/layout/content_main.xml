@@ -9,14 +9,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.sequencing.sample.MainActivity"
+    tools:context=".LoginActivity"
     tools:showIn="@layout/activity_main">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnSigninSequencing"
-        android:background="@drawable/button_click_animation"
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:id="@+id/btnSignInSequencing"
+        android:background="@drawable/sign_in_with_sequencing_com"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
