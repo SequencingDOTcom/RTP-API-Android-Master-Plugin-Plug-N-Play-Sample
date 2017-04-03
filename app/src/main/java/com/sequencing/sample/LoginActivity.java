@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity implements ISQAuthCallback{
         Log.i(TAG, "Authenticated");
         Toast.makeText(getApplicationContext(), "You has been authenticated", Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(getApplicationContext(), TestAppChainsActivity.class);
+        Intent intent = new Intent(getApplicationContext(), SQApiActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         getApplicationContext().startActivity(intent);
     }

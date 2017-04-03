@@ -50,15 +50,26 @@
             android:layout_height="wrap_content"
             android:textSize="12dp"
             android:visibility="gone"
-            android:text="Get vitamin D info"/>
+            android:textAllCaps="false"
+            android:text="Vitamin D "/>
 
         <Button
             android:id="@+id/btnMelanomaRisk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12dp"
+            android:textAllCaps="false"
             android:visibility="gone"
-            android:text="Get Melanoma risk"/>
+            android:text="Melanoma risk"/>
+
+        <Button
+            android:id="@+id/btnGetVitaminDMelanomaRisk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            android:text="Vitamin D &amp; \n Melanoma risk "/>
     </LinearLayout>
 
     <TextView
@@ -67,8 +78,5 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:visibility="gone"
-        android:gravity="center"
         android:layout_marginTop="10dp" />
-
-
 </LinearLayout>

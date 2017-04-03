@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.sequencing.androidoauth.core.OAuth2Parameters;
 import com.sequencing.appchains.AndroidAppChainsImpl;
 import com.sequencing.appchains.AppChains;
+import com.sequencing.appchains.DefaultAppChainsImpl;
 import com.sequencing.appchains.DefaultAppChainsImpl.Report;
 import com.sequencing.appchains.DefaultAppChainsImpl.Result;
 import com.sequencing.appchains.DefaultAppChainsImpl.ResultType;
@@ -22,6 +23,9 @@ import com.sequencing.fileselector.FileEntity;
 import com.sequencing.fileselector.core.ISQFileCallback;
 import com.sequencing.fileselector.core.SQUIFileSelectHandler;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
@@ -34,6 +38,7 @@ public class TestAppChainsActivity extends AppCompatActivity implements ISQFileC
     private Button btnSelectFile;
     private Button btnVitaminD;
     private Button btnMelanomaRisk;
+    private Button btnBulkChain;
     private TextView tvTitle;
     private TextView tvFileName;
     private TextView tvResult;
@@ -43,6 +48,7 @@ public class TestAppChainsActivity extends AppCompatActivity implements ISQFileC
 
     private AsyncTaskChain9 asyncTaskChain9;
     private AsyncTaskChain88 asyncTaskChain88;
+    private AsyncTaskBulkChains asyncTaskBulkChains;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +63,9 @@ public class TestAppChainsActivity extends AppCompatActivity implements ISQFileC
 
         btnMelanomaRisk = (Button) findViewById(R.id.btnMelanomaRisk);
         btnMelanomaRisk.setOnClickListener(this);
+
+        btnBulkChain = (Button) findViewById(R.id.btnGetVitaminDMelanomaRisk);
+        btnBulkChain.setOnClickListener(this);
 
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvFileName = (TextView) findViewById(R.id.tvFileName);
@@ -76,6 +85,7 @@ public class TestAppChainsActivity extends AppCompatActivity implements ISQFileC
 
         btnVitaminD.setVisibility(View.VISIBLE);
         btnMelanomaRisk.setVisibility(View.VISIBLE);
+        btnBulkChain.setVisibility(View.VISIBLE);
         tvTitle.setVisibility(View.VISIBLE);
         tvFileName.setVisibility(View.VISIBLE);
     }
@@ -86,7 +96,7 @@ public class TestAppChainsActivity extends AppCompatActivity implements ISQFileC
 
         switch (id){
             case R.id.btnSelectFile:
-                fileSelectHandler.selectFile(OAuth2Parameters.getInstance().getOauth(), this, true, selectedFileId);
+                fileSelectHandler.selectFile(OAuth2Parameters.getInstance().getOauth(), this, selectedFileId);
                 tvResult.setVisibility(View.GONE);
             break;
 
@@ -104,6 +114,13 @@ public class TestAppChainsActivity extends AppCompatActivity implements ISQFileC
 
                 asyncTaskChain9 = new AsyncTaskChain9();
                 asyncTaskChain9.execute();
+                break;
+            case R.id.btnGetVitaminDMelanomaRisk:
+                tvResult.setVisibility(View.GONE);
+                Toast.makeText(getApplicationContext(), "Computing result...", Toast.LENGTH_LONG).show();
+
+                asyncTaskBulkChains = new AsyncTaskBulkChains();
+                asyncTaskBulkChains.execute();
                 break;
         }
     }
@@ -138,7 +155,7 @@ public class TestAppChainsActivity extends AppCompatActivity implements ISQFileC
     }
 
     private String getMelanomaRisk() {
-        AppChains chains = new AndroidAppChainsImpl(OAuth2Parameters.getInstance().getOauth().getToken().getAccessToken(), "api.sequencing.com");
+        AppChains chains = new DefaultAppChainsImpl(OAuth2Parameters.getInstance().getOauth().getToken().getAccessToken(), "api.sequencing.com");
         Report resultChain9;
 
         try {
@@ -164,6 +181,38 @@ public class TestAppChainsActivity extends AppCompatActivity implements ISQFileC
         }
 
         return null;
+    }
+
+    private Map<String, String> getBulkChains(){
+        Map<String, String> bulkResult = new HashMap<>();
+        AppChains chains = new AndroidAppChainsImpl(OAuth2Parameters.getInstance().getOauth().getToken().getAccessToken(), "api.sequencing.com");
+        Map<String, String> appChainsParams = new HashMap<>();
+        appChainsParams.put("Chain9", entity.getId());
+        appChainsParams.put("Chain88", entity.getId());
+        try {
+            Map<String, Report> resultChain = chains.getReportBatch("StartAppBatch", appChainsParams);
+            for (String key : resultChain.keySet()) {
+                Report report = resultChain.get(key);
+                List<Result> results = report.getResults();
+                for (DefaultAppChainsImpl.Result result : results) {
+                    ResultType type = result.getValue().getType();
+                    if (type == ResultType.TEXT) {
+                        DefaultAppChainsImpl.TextResultValue textResultValue = (DefaultAppChainsImpl.TextResultValue) result.getValue();
+                        if (result.getName().equals("RiskDescription") && key.equals("Chain9")) {
+                            String riskDescription = textResultValue.getData();
+                            bulkResult.put("riskDescription", riskDescription);
+                        }
+                        if (result.getName().equals("result") && key.equals("Chain88")) {
+                            String hasVitD = textResultValue.getData().equals("No") ? "False" : "True";
+                            bulkResult.put("vitaminD", hasVitD);
+                        }
+                    }
+                }
+            }
+        }catch (Exception e){
+//            showError();
+        }
+        return bulkResult;
     }
 
     class AsyncTaskChain9 extends AsyncTask<Void, Void, String> {
@@ -194,6 +243,27 @@ public class TestAppChainsActivity extends AppCompatActivity implements ISQFileC
                 tvResult.setText("There is issue with vitamin D");
             else
                 tvResult.setText("There is no issue with vitamin D");
+        }
+    }
+
+    class AsyncTaskBulkChains extends AsyncTask<Void, Void, Map<String, String>> {
+
+        @Override
+        protected Map<String, String> doInBackground(Void... params) {
+            return getBulkChains();
+        }
+
+        @Override
+        protected void onPostExecute(Map<String, String> result) {
+            tvResult.setVisibility(View.VISIBLE);
+            boolean vitD = Boolean.parseBoolean(result.get("vitaminD"));
+            String melanomaRisk = result.get("riskDescription");
+            if(vitD){
+                tvResult.setText("There is issue with vitamin D" + " \n Melanoma issue level is: " + melanomaRisk);
+            } else{
+                tvResult.setText("There is no issue with vitamin D" + " \n Melanoma issue level is: " + melanomaRisk);
+            }
+
         }
     }
 }

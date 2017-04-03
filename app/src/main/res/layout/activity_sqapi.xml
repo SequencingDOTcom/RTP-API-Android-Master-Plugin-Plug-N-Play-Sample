@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<Button-->
+        <!--android:id="@+id/btnLogin"-->
+        <!--android:layout_width="350dp"-->
+        <!--android:layout_height="70dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="45dp"-->
+        <!--android:background="@drawable/sign_in_with_sequencing_com" />-->
+
+    <Button
+        android:id="@+id/btnRegisterAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/register_on_sequencing" />
+
+    <Button
+        android:id="@+id/btnConnectToSequencing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnRegisterAccount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="Connect to sequencing" />
+
+    <Button
+        android:id="@+id/btnFileSelector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnConnectToSequencing"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="Run file selector" />
+
+    <Button
+        android:id="@+id/btnAppChains"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnFileSelector"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="Test app chains" />
+    <LinearLayout
+        android:id="@+id/llAncestry"
+        android:layout_below="@+id/btnAppChains"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/selector_button_white"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <Button
+            android:id="@+id/btnAncestry"
+            android:layout_width="215dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ancestry"
+            style="?android:attr/borderlessButtonStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll23AndMe"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/llAncestry"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/selector_button_white"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <Button
+            android:id="@+id/btn23"
+            android:layout_width="115dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/mesmall" />
+    </LinearLayout>
+
+</RelativeLayout>

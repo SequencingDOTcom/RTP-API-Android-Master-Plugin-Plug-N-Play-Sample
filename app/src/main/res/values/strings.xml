@@ -5,4 +5,5 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="register_on_sequencing"><a href="https://sequencing.com/user/register">Register for a free account</a></string>
 </resources>
