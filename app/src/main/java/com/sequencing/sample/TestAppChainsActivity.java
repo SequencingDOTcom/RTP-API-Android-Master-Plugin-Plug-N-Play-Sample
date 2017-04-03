@@ -126,7 +126,7 @@ public class TestAppChainsActivity extends AppCompatActivity implements ISQFileC
     }
 
     private boolean hasVitD() {
-            AppChains chains = new AndroidAppChainsImpl(OAuth2Parameters.getInstance().getOauth().getToken().getAccessToken(), "api.sequencing.com");
+        AndroidAppChainsImpl chains = new AndroidAppChainsImpl(OAuth2Parameters.getInstance().getOauth().getToken().getAccessToken(), "api.sequencing.com");
             Report resultChain88;
             try {
                 resultChain88 = chains.getReport("StartApp", "Chain88", entity.getId());
@@ -155,7 +155,7 @@ public class TestAppChainsActivity extends AppCompatActivity implements ISQFileC
     }
 
     private String getMelanomaRisk() {
-        AppChains chains = new DefaultAppChainsImpl(OAuth2Parameters.getInstance().getOauth().getToken().getAccessToken(), "api.sequencing.com");
+        AndroidAppChainsImpl chains = new AndroidAppChainsImpl(OAuth2Parameters.getInstance().getOauth().getToken().getAccessToken(), "api.sequencing.com");
         Report resultChain9;
 
         try {
@@ -185,7 +185,7 @@ public class TestAppChainsActivity extends AppCompatActivity implements ISQFileC
 
     private Map<String, String> getBulkChains(){
         Map<String, String> bulkResult = new HashMap<>();
-        AppChains chains = new AndroidAppChainsImpl(OAuth2Parameters.getInstance().getOauth().getToken().getAccessToken(), "api.sequencing.com");
+        AndroidAppChainsImpl chains = new AndroidAppChainsImpl(OAuth2Parameters.getInstance().getOauth().getToken().getAccessToken(), "api.sequencing.com");
         Map<String, String> appChainsParams = new HashMap<>();
         appChainsParams.put("Chain9", entity.getId());
         appChainsParams.put("Chain88", entity.getId());
@@ -259,9 +259,9 @@ public class TestAppChainsActivity extends AppCompatActivity implements ISQFileC
             boolean vitD = Boolean.parseBoolean(result.get("vitaminD"));
             String melanomaRisk = result.get("riskDescription");
             if(vitD){
-                tvResult.setText("There is issue with vitamin D" + " \n Melanoma issue level is: " + melanomaRisk);
+                tvResult.setText("There is issue with vitamin D" + " \nMelanoma issue level is: " + melanomaRisk);
             } else{
-                tvResult.setText("There is no issue with vitamin D" + " \n Melanoma issue level is: " + melanomaRisk);
+                tvResult.setText("There is no issue with vitamin D" + " \nMelanoma issue level is: " + melanomaRisk);
             }
 
         }
